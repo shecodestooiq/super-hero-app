@@ -1,0 +1,59 @@
+.Center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(20, 20, 20);
+}
+
+.SuperHeroCard {
+    background-color: blanchedalmond;
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 50px;
+    background-image: url("https://e0.pxfuel.com/wallpapers/327/218/desktop-wallpaper-doctor-strange-magic-circle-live-dr-strange-portal.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -35PX;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(255, 230, 230, 0.557);
+}
+
+.H1 {
+    color: rgb(250, 219, 219);
+    font-weight: bold;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0px 0px 20px rgba(247, 211, 211, 0.557);
+    position: relative;
+    left: 20%;
+}
+.Title {
+        color: antiquewhite;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.Paragraph {
+    font-size: 16px;
+    color: antiquewhite;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    width: 50%;
+    line-height: 1.5rem;
+}
