@@ -1,4 +1,4 @@
-const getImage = (url, handler) => {
+const getAppearance = (url, handler) => {
   fetch(url, {
     method: "GET",
     headers: {
@@ -12,11 +12,11 @@ const getImage = (url, handler) => {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
-      handler(data.url);
+      // console.log(data);
+      handler(data);
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
     });
 };
-export default getImage;
+export default getAppearance;

@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "./Search";
-import Contant from "./Content";
+import Content from "./Content";
 
 function Wrapper() {
   return (
@@ -17,10 +17,8 @@ function Wrapper() {
           </div>
           <Search />
         </div>
-        
 
-        <Contant />
-
+        <Content />
       </div>
     </div>
   );

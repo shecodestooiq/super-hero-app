@@ -1,5 +1,4 @@
-
-const getInfo = (url, setter) => {
+const getBiography = (url, handler) => {
     fetch(url, {
       method: "GET",
       headers: {
@@ -13,12 +12,12 @@ const getInfo = (url, setter) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        setter(data);
+        // console.log(data);
+        handler(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
   };
-  export default getInfo;
+  export default getBiography;
   
