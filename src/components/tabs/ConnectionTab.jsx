@@ -23,7 +23,10 @@ function ConnectionTab() {
             .filter((key) => keysToDisplay.includes(key.toLocaleLowerCase()))
             .map((key) => (
               <div className="connection-item">
-                <div>--{key.toUpperCase()}</div>
+                <div className="yellow-and-text">
+                  <div className="bold-yellow">-</div>
+                  <div>{key.toUpperCase()}</div>
+                </div>
                 {shortenText(connection[key])}
               </div>
             ))}

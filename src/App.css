@@ -192,15 +192,29 @@ strong {
 .connection-container{
   margin: 0;
   padding: 0;
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap:20px
+  gap:100px;
+  margin-top: 15px;
 }
 
 .connection-item{
   display: flex;
   flex-direction: column;
-  gap:5px
+  gap:10px
+}
+
+.bold-yellow {
+  color: yellow;
+  width: 3px;
+  height: 10px;
+}
+
+.yellow-and-text{
+  display: flex;
+  gap:10px;
+  font-size: 17px;
+  font-weight: 700;
 }
