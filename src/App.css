@@ -218,3 +218,31 @@ strong {
   font-size: 17px;
   font-weight: 700;
 }
+
+.search-results{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  background-color: #131313;
+  width: 25vw;
+  padding-left: 5%;
+  height: 70vh;
+  max-height: 70vh;
+  overflow-y: scroll;
+
+}
+
+.search-item{
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 16px;
+  gap:20px;
+  align-items: center;
+}
+
+.search-img img{
+  width: 50px;
+  height: 60px;
+}
