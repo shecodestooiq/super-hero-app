@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+* {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.wrapper {
+  background: rgb(221, 62, 86);
+  background: linear-gradient(
+    180deg,
+    rgba(221, 62, 86, 1) 0%,
+    rgba(187, 52, 111, 1) 50%,
+    rgba(139, 39, 143, 1) 100%
+  );
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-div {
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;
+  background-color: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+}
+
+.first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  flex-wrap: wrap;
+}
+
+strong {
+  color: rgb(241, 59, 59);
+}
+
+.search-input-container {
+  position: relative;
+  margin-top: 1%;
+}
+
+.search-input {
+  /* padding: 7px 90px; */
+  font-size: 17px;
+  border: 1px solid #ccccccbe;
+  border-radius: 20px;
+  outline: none;
+  width: 25vw;
+  padding: 7px 10px;
+  margin-top: 1%;
+  background-color: #0a0a0abf;
+
+  text-align: start;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #ccc; /* Change the color of the search icon */
+}
+
+.content {
+  /* background-color: #ccc; */
+  width: 90%;
+  height: 80%;
+  margin-top: 1%;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+  justify-content: start;
+  gap: 5%;
+  flex-wrap: wrap;
+}
+
+.content img {
+  width: 35%;
+  height: 90%;
+  padding-left: 3%;
+  border-radius: 10px;
+}
+.content h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs-line {
+  display: flex;
+  gap: 6%;
+  /* width: 500px; */
+  width: 35vw;
+
+  /* font-weight: 500;
+  font-size: 17px; */
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+  margin-bottom: 10%;
+  cursor: pointer;
+}
+
+.power-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.power-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.power-num {
+  color: #fcc740;
+  font-weight: bold;
+}
+
+.name-icon {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Adjust this value as needed */
+}
+
+.name-icon .icon {
+  flex-shrink: 0;
+}
+
+.name-icon .label {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.active {
+  border-bottom: 4px solid #f13c3b;
+  margin-bottom: 1.4px;
+}
+
+.biography-item {
+  display: flex;
+  gap: 10px;
+}
+
+.biography-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+.key {
+  font-weight: 700;
+  /* color:#4F4F4F */
+  color: #fcc740;
+}
+.appearance-container {
+  display: flex;
+  flex-direction: column;
+  gap:20px
+}
+.appearance-item{
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.name-icon .appearance div{
+  font-weight: 700;
+}
+
+.appearance-value{
+  background-color: #F06259;
+  padding: 1% 2%;
+  border-radius: 15px;
+}
+
+
+.connection-container{
+  margin: 0;
+  padding: 0;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap:100px;
+  margin-top: 15px;
+}
+
+.connection-item{
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+
+.bold-yellow {
+  color: yellow;
+  width: 3px;
+  height: 10px;
+}
+
+.yellow-and-text{
+  display: flex;
+  gap:10px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.search-results{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  background-color: #131313;
+  width: 25vw;
+  padding-left: 5%;
+  height: 70vh;
+  max-height: 70vh;
+  overflow-y: scroll;
+
+}
+
+.search-item{
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  font-size: 16px;
+  gap:20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-img img{
+  width: 50px;
+  height: 60px;
 }
