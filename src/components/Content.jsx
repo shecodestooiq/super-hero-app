@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import getImage from "../getters/image";
 import { BASE_URL } from "../urls";
 import getInfo from "../getters/info";
@@ -8,16 +8,20 @@ import PowersTab from "./tabs/PowersTab";
 import BiographyTab from "./tabs/BiographyTab";
 import AppearanceTab from "./tabs/AppearanceTab";
 import ConnectionTab from "./tabs/ConnectionTab";
+import Context from '../providers/dataProvider';
 
 
 function Content() {
+
+  const { currentData, setCurrentData } = useContext(Context)
+  
+
   const [image, setImage] = useState("");
   const [info, setInfo] = useState(null);
   const [powers, setPower] = useState(null);
   const [currentTab, setCurrentTab] = useState("powerstats");
 
   useEffect(() => {
-    getImage(`${BASE_URL}/70/image`, setImage); // Initial ID
     getInfo(`${BASE_URL}/70/powerstats`, setInfo);
     getPowerstats(`${BASE_URL}/70/powerstats`, setPower);
   }, []);
@@ -42,7 +46,9 @@ function Content() {
 
   return (
     <div className="content">
-      <img src={image} alt="" />
+      {currentData && (
+         <img src={currentData.image} alt="" />
+      )}
       <div className="info">
         {info && (
           <>

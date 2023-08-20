@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BASE_URL } from "../urls";
+import Context from "../providers/dataProvider";
 
 function Search() {
+  const { currentData, setCurrentData } = useContext(Context);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -35,9 +38,14 @@ function Search() {
     setSearchResults(matchingResults);
   };
 
-  // This will send a request for the clicked itema and update the while content
-  const handleClick = (id) => {
+  const handleClick = (id, image) => {
     console.log(id);
+
+    // const newImageUrl = `${BASE_URL}/${id}/image`;
+    setCurrentData((prevData) => ({
+      ...prevData,
+      image: image,
+    }));
   };
 
   return (
@@ -54,12 +62,13 @@ function Search() {
           {searchResults.map((result) => (
             <div
               className="search-item"
-              onClick={(id) => handleClick(result.id)}
+              onClick={(id) => handleClick(result.id, result.image.url)}
+              key={result.id}
             >
               <div className="search-img">
                 <img src={result.image.url} alt="" />
               </div>
-              <div key={result.id}>{result.name}</div>
+              <div>{result.name}</div>
             </div>
           ))}
         </div>

@@ -14,9 +14,11 @@ const getImage = (url, handler) => {
     .then((data) => {
       // console.log(data);
       handler(data.url);
+
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
     });
+
 };
 export default getImage;

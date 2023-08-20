@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import Content from "./Content";
+import Context, { DataProvider } from "../providers/dataProvider";
 
 function Wrapper() {
   return (
@@ -17,8 +18,9 @@ function Wrapper() {
           </div>
           <Search />
         </div>
-
-        <Content />
+        {/* <DataProvider> */}
+          <Content />
+        {/* </DataProvider> */}
       </div>
     </div>
   );
