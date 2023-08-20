@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import getAppearance from "../../getters/appearance";
-import { BASE_URL } from "../../urls";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Context from "../../providers/dataProvider";
+
 
 function AppearanceTab() {
-  const [appearance, setAppearance] = useState(null);
+  const { currentData } = useContext(Context);
 
   const keysToDisplay = [
     "gender",
@@ -16,15 +16,11 @@ function AppearanceTab() {
     "hair-color",
   ];
 
-  useEffect(() => {
-    getAppearance(`${BASE_URL}/1/appearance`, setAppearance);
-  }, []);
-
   return (
     <>
-      {appearance && (
+      {currentData && (
         <div className="appearance-container">
-          {Object.keys(appearance)
+          {Object.keys(currentData.appearance)
             .filter((key) => keysToDisplay.includes(key))
             .map((key) => (
               <div className="appearance-item" key={key}>
@@ -32,7 +28,9 @@ function AppearanceTab() {
                   <FontAwesomeIcon icon={faStar} />
                   <div>{key.toUpperCase()}</div>
                 </div>
-                <div className="appearance-value">{appearance[key]}</div>
+                <div className="appearance-value">
+                  {currentData.appearance[key]}
+                </div>
               </div>
             ))}
         </div>

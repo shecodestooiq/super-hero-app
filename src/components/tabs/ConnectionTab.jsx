@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from "react";
-import getConnections from "../../getters/connections";
-import { BASE_URL } from "../../urls";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "../../providers/dataProvider";
 
 function ConnectionTab() {
-  const [connection, setConnection] = useState(null);
-
-  useEffect(() => {
-    getConnections(`${BASE_URL}/70/connections`, setConnection);
-  }, []);
+  const { currentData } = useContext(Context);
 
   const keysToDisplay = ["relatives", "group-affiliation"];
 
   const shortenText = (str) => {
-    return str ? str.split(",").slice(0, 2).join(", ") : "";
+    if (str) {
+      const delimiter = str.includes(",") ? "," : ";";
+      return str
+        .split(delimiter)
+        .slice(0, 2)
+        .join(delimiter + " ");
+    }
+    return "";
   };
 
   return (
     <>
-      {connection && (
+      {currentData && (
         <div className="connection-container">
-          {Object.keys(connection)
+          {Object.keys(currentData.connections)
             .filter((key) => keysToDisplay.includes(key.toLocaleLowerCase()))
             .map((key) => (
               <div className="connection-item">
@@ -27,7 +29,7 @@ function ConnectionTab() {
                   <div className="bold-yellow">-</div>
                   <div>{key.toUpperCase()}</div>
                 </div>
-                {shortenText(connection[key])}
+                {shortenText(currentData.connections[key])}
               </div>
             ))}
         </div>

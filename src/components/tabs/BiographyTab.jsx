@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import getBiography from "../../getters/biography";
-import { BASE_URL } from "../../urls";
+import React, { useEffect, useState , useContext } from "react";
+import Context from "../../providers/dataProvider";
+
+
 
 function BiographyTab() {
-  const [biography, setBiography] = useState(null);
+  const { currentData } = useContext(Context);
 
   const keysToDisplay = [
     "full-name",
@@ -14,21 +15,17 @@ function BiographyTab() {
     "publisher",
   ];
 
-  useEffect(() => {
-    getBiography(`${BASE_URL}/1/biography`, setBiography);
-  }, []);
-
 
   return (
     <>
-      {biography && (
+      {currentData && (
         <div className="biography-container">
-          {Object.keys(biography)
+          {Object.keys(currentData.biography)
             .filter((key) => keysToDisplay.includes(key.toLocaleLowerCase()))
             .map((key) => (
               <div className="biography-item" key={key}>
                 <div className="key">{key.toUpperCase()} : </div>
-                <div className="biography-value">{biography[key]}</div>
+                <div className="biography-value">{currentData.biography[key]}</div>
               </div>
             ))}
         </div>
