@@ -1,5 +1,13 @@
+import SuperHero from "./SuperHero";
+import './App.css'
+
 function App() {
-  return <>Super Hero App</>;
+  return (
+    <>
+      <SuperHero />
+    </>
+  );
+
 }
 
 export default App;
