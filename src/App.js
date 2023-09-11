@@ -1,5 +1,13 @@
+import './App.css';
+import Hero from './Hero'; 
+
 function App() {
-  return <>Super Hero App</>;
+  return (
+    <div className="App">
+    <Hero/>
+     
+    </div>
+  );
 }
 
 export default App;
